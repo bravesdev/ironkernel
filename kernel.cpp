@@ -11,13 +11,13 @@
 #define __volatile__
 #endif
 
-TerminalRootOS::TerminalRootOS() {
+IronKernelEngine::IronKernelEngine() {
     cursor_x = 0;
     cursor_y = 0;
     clear_screen();
 }
 
-void TerminalRootOS::clear_screen() {
+void IronKernelEngine::clear_screen() {
     unsigned short* VideoMemory = reinterpret_cast<unsigned short*>(VGA_MEMORY);
 
     // Preenche a tela com espaços vazios e cor padrão
@@ -30,7 +30,7 @@ void TerminalRootOS::clear_screen() {
     update_hardware_cursor();
 }
 
-void TerminalRootOS::update_hardware_cursor() {
+void IronKernelEngine::update_hardware_cursor() {
     uint16_t pos = cursor_y * VGA_WIDTH + cursor_x;
 
     // Envia o comando para o controlador VGA para mover o cursor piscante
@@ -40,7 +40,7 @@ void TerminalRootOS::update_hardware_cursor() {
     outb(VGA_DATA_PORT, (uint8_t)((pos >> 8) & 0xFF));
 }
 
-void TerminalRootOS::scroll() {
+void IronKernelEngine::scroll() {
     unsigned short* VideoMemory = reinterpret_cast<unsigned short*>(VGA_MEMORY);
 
     // Move todas as linhas uma posição para cima
@@ -56,7 +56,7 @@ void TerminalRootOS::scroll() {
     cursor_y = VGA_HEIGHT - 1;
 }
 
-void TerminalRootOS::put_char(char c) {
+void IronKernelEngine::put_char(char c) {
     unsigned short* VideoMemory = reinterpret_cast<unsigned short*>(VGA_MEMORY);
 
     if (c == '\n') {
@@ -87,29 +87,29 @@ void TerminalRootOS::put_char(char c) {
     update_hardware_cursor();
 }
 
-void TerminalRootOS::printf(const char* str) {
+void IronKernelEngine::printf(const char* str) {
     for (int i = 0; str[i] != '\0'; ++i) {
         put_char(str[i]);
     }
 }
 
-uint8_t TerminalRootOS::read_key_scancode() {
+uint8_t IronKernelEngine::read_key_scancode() {
     // Espera até que o buffer do teclado tenha um caractere pronto (bit 0 do status)
     while ((inb(KEYBOARD_STATUS_PORT) & 0x01) == 0);
     return inb(KEYBOARD_DATA_PORT);
 }
 
-void TerminalRootOS::reboot_system() {
+void IronKernelEngine::reboot_system() {
     // Envia o comando de reset para o controlador 8042
     outb(KEYBOARD_STATUS_PORT, 0xFE);
 }
 
-inline uint8_t TerminalRootOS::inb(uint16_t port) {
+inline uint8_t IronKernelEngine::inb(uint16_t port) {
     uint8_t result;
     __asm__ __volatile__("inb %1, %0" : "=a"(result) : "Nd"(port));
     return result;
 }
 
-inline void TerminalRootOS::outb(uint16_t port, uint8_t value) {
+inline void IronKernelEngine::outb(uint16_t port, uint8_t value) {
     __asm__ __volatile__("outb %0, %1" : : "a"(value), "Nd"(port));
 }

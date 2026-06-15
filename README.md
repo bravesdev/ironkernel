@@ -109,3 +109,18 @@ qemu-system-i386.exe -kernel kernel.bin
 └── main.cpp       # Core kernel shell engine housing string functions and main loop execution
 
 ```
+---
+
+## Author & Credits
+
+* **BravesDev** - *Core Developer & Architecture Design* - [GitHub](https://github.com/BravesDev)
+
+---
+
+## License
+
+This project is licensed under the **GNU GPL v3.0 License** - see the [LICENSE](LICENSE) file for complete legal details.
+
+### What does this mean?
+* **Permissions:** You are completely free to download, modify, and distribute this operating system.
+* **Conditions:** If you distribute a modified version of **Iron Kernel (Basic Kernel)**, you **must** disclose and publish your entire source code under this exact same GPL v3.0 license. You cannot make your modifications closed-source.

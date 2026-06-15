@@ -120,7 +120,3 @@ qemu-system-i386.exe -kernel kernel.bin
 ## License
 
 This project is licensed under the **GNU GPL v3.0 License** - see the [LICENSE](LICENSE) file for complete legal details.
-
-### What does this mean?
-* **Permissions:** You are completely free to download, modify, and distribute this operating system.
-* **Conditions:** If you distribute a modified version of **Iron Kernel (Basic Kernel)**, you **must** disclose and publish your entire source code under this exact same GPL v3.0 license. You cannot make your modifications closed-source.

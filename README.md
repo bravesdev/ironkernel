@@ -1,4 +1,4 @@
-# Iron Kernel (Basic Kernel)
+# Iron Kernel (Basic Kernel x86)
 ---
 ![Demo do Iron Kernel](image.png)
 ---

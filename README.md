@@ -1,6 +1,6 @@
 # Iron Kernel (Basic Kernel)
 ---
-![demo gif](https://github.com/user-attachments/assets/b86c1d97-0f9c-430d-980b-7e9058aae4c6)
+![demo gif](image.png)
 ---
 
 A minimalist x86 32-bit monolithic kernel operating system written in C++ and Assembly. This project boots into Protected Mode using the Multiboot specification, providing a basic command-line interface (CLI) with manual hardware abstractions for the VGA text mode buffer and the 8042 PS/2 Keyboard Controller.

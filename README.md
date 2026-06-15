@@ -53,7 +53,7 @@ sudo apt install build-essential g++ qemu-system-x86
 
 ---
 
-### 🚀 Building and Running on Linux
+### Building and Running on Linux
 
 Open your terminal in the project directory and execute the following unified command sequence:
 
@@ -75,7 +75,7 @@ qemu-system-i386 -kernel kernel.bin
 
 ---
 
-### 🚀 Building and Running on Windows
+### Building and Running on Windows
 
 Open **Command Prompt (cmd)** or **PowerShell** inside the root folder of your project repository and run:
 
